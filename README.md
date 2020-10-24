@@ -8,5 +8,5 @@
 	- [KNN Notebook](https://github.com/Learn-Write-Repeat/ml/blob/main/K-Nearest%20Neighbors/Ankur_ML_KNN.ipynb)
 - Unsupervised Learning
 	- [Clustering](Custerning.md)
-	- [Clustering Notebook](https://github.com/Learn-Write-Repeat/ml/blob/main/Clustering/SharathChandrika_ML_clustering.ipynb)
+	- [Clustering Notebook](https://github.com/Learn-Write-Repeat/ml/blob/main/Clustering/SharathChandrika_ML_clustering.ipynb) 
 -[Assignment](Assignment.md)
