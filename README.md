@@ -1,10 +1,10 @@
 # ML_Module_3
 
 - Supervised Learning:
-   - Regression:
+   - Regression
         - [Linear Regression](Linear-regression.md)
-        - [Linear Regression](Linear-regression.ipynb)
-   - Classification:
+        - [Linear Regression Notebook](Linear-regression.ipynb)
+   - Classification
         - [Logistic Regression]()
         - [Logistic Regression Notebook](https://github.com/Learn-Write-Repeat/ml/blob/main/Logistic%20Regression/Ankur_ML_Logistic_regression.ipynb)
 	- [KNN](https://github.com/Learn-Write-Repeat/ml/blob/main/K-Nearest%20Neighbors/Ankur_ML_KNN.md) 
