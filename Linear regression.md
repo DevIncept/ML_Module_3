@@ -14,7 +14,7 @@
 
 Below table represents current home prices in monroe township based on square feet area
 
-<img src="homepricetable.JPG" style="width:370px;height:250px">
+<img src="Linear Regression/homepricetable.JPG" style="width:370px;height:250px">
 
 **Problem Statement**: Given above data build a machine learning model that can predict home prices based on square feet area
 
@@ -46,11 +46,11 @@ To update B1 and B2 values in order to reduce Cost function (minimizing RMSE val
 
 You can represent values in above table as a scatter plot (values are shown in red markers). After that one can draw a straight line that best fits values on chart. 
 
-<img src="scatterplot.JPG" style="width:600px;height:370px">
+<img src="Linear Regression/scatterplot.JPG" style="width:600px;height:370px">
 
 You can draw multiple lines like this but we choose the one where total sum of error is minimum
 
-<img src="equation.PNG" style="width:600px;height:370px" >
+<img src="Linear Regression/equation.PNG" style="width:600px;height:370px" >
 
 You might remember about linear equation from your high school days math class. Home prices can be presented as following equation,
 
