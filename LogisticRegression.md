@@ -6,13 +6,13 @@
 
 Consider a model with *two independent numeric variables*, namely, ***x<sub>1</sub>*** and ***x<sub>2</sub>*** , and *one dependent (indictor) variable* ***p*** . The linear relationship between them based on *hypothesis* can be shown in below equation, where ***l*** refers to *log-odds* of ***p***.
 
-![eq1](images/eq1.JPG)
+![eq1](LogisticRegression/images/eq1.JPG)
 
 *Here ***b*** is the base of *logarithmic* function, which can be understood as a hyper-parameter to the problem, and ***β<sub>1</sub>*** , ***β<sub>2</sub>*** and ***β<sub>3</sub>*** are parameters of logistic regression model.
 
 By simple algebraic modification to the above equation, we get the new equation as below.
 
-![eq2](images/eq2.JPG)
+![eq2](LogisticRegression/images/eq2.JPG)
 
 *Here ***S<sub>b</sub> (x)*** is defined as reciprocal of negative of *x* raised to the power of *b* .
 
@@ -20,7 +20,7 @@ By simple algebraic modification to the above equation, we get the new equation 
 
 The results of logistic model can be interpreted from the below equation.
 
-![eq3](images/eq3.JPG)
+![eq3](LogisticRegression/images/eq3.JPG)
 
 *Here ***β<sub>0</sub>*** and ***β<sub>1</sub>*** are parameters of logistic model which are to be calculated and ***ε*** is the error term related to the estimated model.
 
