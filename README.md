@@ -2,8 +2,8 @@
 
 - Supervised Learning:
    - Regression:
-        - [Linear Regression](Linear regression.md)
-        - [Linear Regression](Linear regression.ipynb)
+        - [Linear Regression](Linear-regression.md)
+        - [Linear Regression](Linear-regression.ipynb)
    - Classification:
         - [Logistic Regression]()
         - [Logistic Regression Notebook](https://github.com/Learn-Write-Repeat/ml/blob/main/Logistic%20Regression/Ankur_ML_Logistic_regression.ipynb)
