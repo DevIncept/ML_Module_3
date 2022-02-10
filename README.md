@@ -10,9 +10,9 @@
 	 - [KNN](KNN.md) 
 	 - [KNN Notebook](KNN.ipynb)
 	 - [SVM](SVM.md)
-	 - [SVM Notebook](SVM.ipynb)
+	 - [SVM Notebook](https://github.com/Learn-Write-Repeat/Open-contributions/blob/master/Sagar_ML_Support_Vector_Machine.ipynb.ipynb)
        
 - Unsupervised Learning
 	- [Clustering](Clustering.md)
-	- [Clustering Notebook](https://github.com/Learn-Write-Repeat/ml/blob/main/Clustering/SharathChandrika_ML_clustering.ipynb) 
+	- [Clustering Notebook](Clustering.ipynb) 
 - [Assignment](Assignment.md)
