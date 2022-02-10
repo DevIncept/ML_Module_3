@@ -7,10 +7,10 @@
    - Classification
 	 - [Logistic Regression](LogisticRegression.md)
 	 - [Logistic Regression Notebook](LogisticRegression.ipynb)
-	 - [KNN](https://github.com/Learn-Write-Repeat/ml/blob/main/K-Nearest%20Neighbors/Ankur_ML_KNN.md) 
-	 - [KNN Notebook](https://github.com/Learn-Write-Repeat/ml/blob/main/K-Nearest%20Neighbors/Ankur_ML_KNN.ipynb)
-	 - [SVM](https://github.com/Learn-Write-Repeat/Open-contributions/blob/master/Sagar_ML_Support_Vector_Machine.md)
-	 - [SVM Notebook](https://github.com/Learn-Write-Repeat/Open-contributions/blob/master/Sagar_ML_Support_Vector_Machine.ipynb)
+	 - [KNN](KNN.md) 
+	 - [KNN Notebook](KNN.ipynb)
+	 - [SVM](SVM.md)
+	 - [SVM Notebook](SVM.ipynb)
        
 - Unsupervised Learning
 	- [Clustering](Clustering.md)
