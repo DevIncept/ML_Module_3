@@ -1,136 +1,160 @@
-## What is clustering?
-* Clustering is the task of dividing the data points into a number of groups such that data points in the same groups are more similar to other data points in the same group and dissimilar to the data points in other groups. 
-* It is basically a collection of objects on the basis of similarity and dissimilarity between them.
-* For example- The data points in the graph below clustered together can be classified into one single group. We can distinguish the clusters, and we can identify that there are 3 clusters in the below picture.
-![1](https://user-images.githubusercontent.com/63340338/93751163-47130700-fc1a-11ea-8e50-cccf0d71fde6.jpg)
-## Why Clustering ?
-1. Clustering is very much important as it determines the intrinsic grouping among the unlabeled data present. 
-2. There are no criteria for a good clustering. 
-3. It depends on the user, what is the criteria they may use which satisfy their need. 
-4. This algorithm must make some assumptions which constitute the similarity of points and each assumption make different and equally valid clusters.
-## Clustering Methods :
-#### 1. Density-Based Methods :
-  * These methods consider the clusters as the dense region having some similarity and different from the lower dense region of the space. 
-  * These methods have good accuracy and ability to merge two clusters.
-  * Example DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
-#### 2. Hierarchical Based Methods : 
- * The clusters formed in this method forms a tree-type structure based on the hierarchy. 
- * New clusters are formed using the previously formed one. It is divided into two category
-    * Agglomerative (bottom up approach)
-    * Divisive (top down approach)
-#### 3. Partitioning Methods : 
-  * These methods partition the objects into k clusters and each partition forms one cluster. 
-  * This method is used to optimize an objective criterion similarity function such as when the distance is a major parameter example K-means.
-#### 4.Grid-based Methods : 
-  * In this method the data space is formulated into a finite number of cells that form a grid-like structure. 
-  * All the clustering operation done on these grids are fast and independent of the number of data objects example STING (Statistical Information Grid), wave cluster, CLIQUE (CLustering In Quest) etc.
-<ul type="square">
-  <li>  We shall discuss the most used clustering algorithms in detail.</li></ul>
- 
- **1. K-means Clustering**
+# CLUSTERING
+Its Unsupervised Learning, providing insights on categories and groups that the dataset can fit into... 
+![](https://i.pinimg.com/originals/ce/f2/18/cef218767880fc469a41ca739b0a2539.jpg)
 
-**2.Agglomerative Hierarchical Clustering**
- 
- **3.DBSCAN**
+## INTRODUCTION:
+it's essentially a sort of unsupervised learning methodology . associate unsupervised learning method may be a method within which we have a tendency to draw references from datasets consisting of input file while not tagged responses. Generally, it is used as a method to seek out meaningful structure, informative underlying processes, 
+generative features, and clusterings inherent in an exceedingly set of examples.
+Bunch is that the task of dividing the population or data points into variety of teams specified data points within the same groups are a lot of similar to different data points in the same group and dissimilar to the information points in different groups. It's essentially a set of objects on the idea of similarity and difference between them.
 
-## 1. K-means Clustering
+## Type of Algorithms
+1. K -mean
+2. Affinity propagation
+3. Mean Shift
+4. Spectral Clustering
+5. Hierarchical clustering
+6. DBSCAN
+7. OPTICS
+8. Guassian Matrix
+9. BIRCH
 
-* It is the simplest unsupervised learning algorithm that solves clustering problem.
+### K-means
+K-means is often called as Lloyd’s algorithm. It consist of few steps:
 
-* K-means algorithm partition n observations into k clusters where each observation belongs to the cluster with the nearest mean serving as a prototype of the cluster .
+- chooses the initial centroids [Choosing K from X]
+And then...
+- The first assigns each sample to its nearest centroid.
+- The second step creates new centroids by taking the mean value of the existing centroids.
+- And the rest is looping between the above steps
 
-#### Steps involved in K-means clustering algorithm:
+This step continues untill the new centroids are nearly the same as the old ones.
+Other types of K-means:
+ 1. Low-level parallelism
+ 2. Mini K-means
 
-**Step 1** : Choose the number K of clusters.Here we choose K=2
+### Affinity Propagation
+In Affinity Propagation there is no need to specify the number of clusters. Its more suitable where we don't know thw optimal number of clusters. The interesting thing about this machine learning techniques is that you don’t have to configure the number of clusters in advance. 
+The algorithm has a high time complexity, which is a demerit of using it.
+- It creates clusters by sending messages between pairs of samples until convergence.
 
-![1 1](https://user-images.githubusercontent.com/63340338/93751220-5b570400-fc1a-11ea-8fd9-b0bdb04e2439.jpg)
 
-**Step 2** : Select at random K points the centroids(not necessarily from dataset)
+```
+from sklearn.datasets import make_blobs
 
-![1 2](https://user-images.githubusercontent.com/63340338/93751267-70cc2e00-fc1a-11ea-819e-9acd2ebc604e.jpg)
+X, y_true = make_blobs(n_samples=300, centers=4,  n_features = 2, cluster_std=0.60)
 
-**Step 3** : Assign each data point to the closest centroid.(They form K clusters)
+plt.scatter(X[:, 0], X[:, 1], s=50);
+```
 
-![1 3](https://user-images.githubusercontent.com/63340338/93751303-7fb2e080-fc1a-11ea-9c42-216839ac4638.jpg)
+![](https://i.pinimg.com/originals/34/ef/3b/34ef3b985eef47885ad7e832075ef9d1.jpg)
 
-**Step 4** :Compute and place the new centroid of each cluster.
+```
+af = AffinityPropagation(preference=-40)
+clustering = af.fit(X)
+plt.scatter(X[:,0], X[:,1], c=clustering.labels_, cmap='rainbow', alpha=0.7, edgecolors='r')
+```
+![](https://i.pinimg.com/originals/4e/1e/83/4e1e834616277078ddc305a23bfec29d.jpg)
 
-![1 4](https://user-images.githubusercontent.com/63340338/93751334-8e999300-fc1a-11ea-9e62-2c76a3b571e5.jpg)
 
-**Step 5** : Reassign each data point to new closest centroid.if any reassignment took place, go to **Step 4**, if not model is **FINISHED**.,Here reassignment took place so we go back to **Step 4**.
+### Mean shift
+The clustering aims on finding blobs in a smooth density of samples present. 
+- Centroids with mean of the given region
+- They are revised to remove the duplicates, thus increasing the efficiency of cluster formation.
 
-![1 5](https://user-images.githubusercontent.com/63340338/93751364-9d804580-fc1a-11ea-8685-1bed233afa5c.jpg)
+The algorithm automatically sets the number of clusters, instead of relying on a parameter bandwidth, which dictates the size of the region to search through.
+The algorithm is not highly scalable, as it requires multiple nearest neighbor searches during the execution of the algorithm.
+Again the algorithm stops iteration if the change is no more significant.
 
-Repeat Step 5 until no reassignment, here reassignment doesnt take place,therefore model is completed.
+```
+ms = MeanShift()
+ms.fit(X)
+cluster_centers = ms.cluster_centers_
+plt.scatter(X[:,0], X[:,1], c=clustering.labels_, cmap='rainbow', alpha=0.7, edgecolors='r')
+```
+The results will be similar to affinity propagations.
 
-![1 6](https://user-images.githubusercontent.com/63340338/93751403-aec95200-fc1a-11ea-9798-8ffe706f3c14.jpg)
+### Spectral Clustering
+- low-dimension embedding of the affinity matrix between samples, followed by clustering
+The present version requires the number of clusters to be specified in advance. It works well for a small number of clusters, but is not advised for many clusters.
 
-### How to choose optimal value of  number of clusters:
-##### Elbow Method:
- * First we calculate WCSS(Within-Cluster-Sum-of-Squares).
- * WCSS is illustrated in the below example.
- ![cluster](https://user-images.githubusercontent.com/63340338/93756360-9b21e980-fc22-11ea-82c7-12db36f99a9a.jpeg)
-*  After calculating WCSS , we plot a graph between number of clusters and WCSS.
+Spectral clustering is a technique with roots in graph theory, where the approach is used to identify communities of nodes in a graph based on the edges connecting them.
 
-![elbowmethod](https://user-images.githubusercontent.com/63340338/93755714-61041800-fc21-11ea-80b8-f68af91e3b57.png)
+```
+spectral_model_rbf = SpectralClustering(affinity ='rbf')
+  
+# Training the model and Storing the predicted cluster labels
+labels_rbf = spectral_model_rbf.fit_predict(X)
+```
 
-* From the above graph we can observe that after a certain point WCSS values keep on decreasing and it formed a **elbow** shape .
-* Which is the optimal value of clusters that can be choosen for the given dataset, here elbow is formed at number of clusters=3 ,
-therefore the optimal number of clusters for that dataset are 3.
-## 2. Agglomerative Hierarchical Clustering
- * Steps involved in Agglomerative Hierarchical Clustering:
-   **Step 1** :Make each data point a single-point cluster( Which forms N clusters.)
+### Heirarchical Clustering
+Building nested clusters by merging or splitting them successively.Formation of hierarchy of clusters. 
+At first all the points are considerded as diffirent clusters. then they are driven to combine and form hierarchy of clusters.
 
-![2 1](https://user-images.githubusercontent.com/63340338/93751475-c6a0d600-fc1a-11ea-8b29-7077a22cc779.jpg)
-     
-   **Step 2** :Take the two closest data points and make them one cluster.(Which forms N-1 clusters)
-To choose the distance between clusters there are few methods ,they are:
+1. Agglomerative Clustering
+Scale to large number of samples when it is used jointly with a connectivity matrix, but is computationally expensive when no connectivity constraints are added between samples: it considers at each step all the possible merges.
 
-**Complete linkage:** similarity of the farthest pair. One drawback is that outliers can cause merging of close groups later than is optimal.
+2. Divisive Clustering
+Is the exact opposite of Agglomerative.
 
-**Single-linkage:** similarity of the closest pair. This can cause premature merging of groups with close pairs, even if those groups are quite dissimilar overall.
+### DBSCAN
+Density-based spatial clustering of applications with noise (DBSCAN).
+Clusters as areas of high density separated by areas of low density.
+Clusters found by DBSCAN can be any shape, as opposed to k-means which assumes that clusters are convex shaped.
+- DBSCAN groups together points that are close to each other based on a distance measurement (usually Euclidean distance)
 
-**Group average:** similarity between groups.
+### OPTICS
+Ordering points to identify the clustering structure(OPTICS).
+The most common density based approach, DBSCAN, requires only two parameters.
+The OPTICS algorithm shares many similarities with the DBSCAN algorithm. But its different in some parameters. It relaxes some requirements. 
 
-**Centroid similarity:** each iteration merges the clusters with the most similar central point
+### BIRCH
+Balanced Iterative Reducing and Clustering using Hierarchies(BIRCH)
+The Birch builds a tree called the Clustering Feature Tree (CFT) . The CF Nodes have a number of subclusters called Clustering Feature subclusters (CF Subclusters) and these CF Subclusters located in the non-terminal CF Nodes can have CF Nodes as children.
 
-![2 2](https://user-images.githubusercontent.com/63340338/93751519-d7e9e280-fc1a-11ea-9759-fb35247be41f.jpg)
-   
-   **Step 3** :Take the two closest clusters and make them one cluster(Which forms N-2 clusters)
+The BIRCH algorithm has two parameters, the threshold and the branching factor. The branching factor limits the number of subclusters in a node and the threshold limits the distance between the entering sample and the existing subclusters.
+```
+brc = Birch(branching_factor=50, n_clusters=None, threshold=1.5)
+brc.fit(X)
+```
 
-![2 3](https://user-images.githubusercontent.com/63340338/93751567-e801c200-fc1a-11ea-9a8e-24655c974cb6.jpg)
-    
-  **Step 4** : Repeat **Step 3** until there is only one cluster, **Finsihed**.
-   
-   ![2 4](https://user-images.githubusercontent.com/63340338/93751659-0f588f00-fc1b-11ea-86fb-13c4733781e7.jpg)
- 
- ![2 4 1](https://user-images.githubusercontent.com/63340338/93751609-f6e87480-fc1a-11ea-878f-d8d950b0b8bb.jpg)
- 
- ![2 5](https://user-images.githubusercontent.com/63340338/93751702-239c8c00-fc1b-11ea-81c5-971c905d38ea.jpg)
+### Guassian Mixture
+Gaussian Mixture Models assume that there are a certain number of Gaussian distributions, and each of these distributions represent a cluster.
 
-* We choose number of clusters in Agglomerative Hierarchical Clustering using dendograms
 
-![dendrogram2](https://user-images.githubusercontent.com/63340338/93751736-31eaa800-fc1b-11ea-82c7-dedcfb134349.png)
+## APPLICATIONS OF CLUSTERING ALGORITHMS
 
-## 3. DBSCAN
- * Partitioning methods (K-means, PAM clustering) and hierarchical clustering work for finding spherical-shaped clusters or convex clusters., they are suitable only for compact and well-separated clusters. 
- * They are also severely affected by the presence of noise and outliers in the data.
- * Real life data may contain irregularities, like –
- i) Clusters can be of arbitrary shape such as those shown in the figure below.
- ii) Data may contain noise.
- * To overcome these disadvantages of mentioned algorithms DBSCAN algorithm is used.
- * The DBSCAN algorithm is based on this intuitive notion of “clusters” and “noise”. 
- * The key idea is that for each point of a cluster, the neighborhood of a given radius has to contain at least a minimum number of points.
-#### Steps involved in DBSCAN algorithm  –
+![](https://i.pinimg.com/originals/3f/fb/47/3ffb4706ce0c6be3cf6ca51c8759f89f.jpg)
 
-**Step 1** : Find all the neighbor points within eps and identify the core points or visited with more than MinPts neighbors.
+1. Clustering algorithm can be used for identifying fake news.
 
-**Step 2** : For each core point if it is not already assigned to a cluster, create a new cluster.
+It works by collecting content of fake news article, or you can say corpus,then make cluster of words. These clusters will help the algorithm to predict which news are fake and which news are not fake. 
 
-**Step 3** : Find recursively all its density connected points and assign them to the same cluster as the core point.
- A point a and b are said to be density connected if there exist a point c which has a sufficient number of points in its neighbors and both the points a and b are within the eps distance. This is a chaining process. So, if b is neighbor of c, c is neighbor of d, d is neighbor of e, which in turn is neighbor of a implies that b is neighbor of a.
+2. Clustering Algorithms  can be used in Search Engines:
 
-**Step 4** : Iterate through the remaining unvisited points in the dataset. Those points that do not belong to any cluster are noise
+Search engines uses clustering algorithm to group similar objects together that is objects related to data you search on search engine and by grouping dissimilar objects together . So, when you search, you also get some other objects related to your search. 
 
-![dbscan](https://user-images.githubusercontent.com/63340338/93751787-43cc4b00-fc1b-11ea-93d0-9c2771c7b206.jpeg)
+3. K-means algorithm can be  used for  image compression, market segmentation, document clustering and image segmentation. 
+
+4. The clustering algorithm can be used for the identification of cancer cells. It works by making clusters  of cancerous data and non-cancerous data. 
+
+5.  The clustering algorithm can be used in Biology. It works by using  image recognition and make clusters of different species of plants and animals. 
+
+6. K-means clustering techniques can be used to identify spam emails.
+7.Clustering algorithm helps us by predicting earthquake - affected areas and by grouping some dangerous zones and less dangerous zones.
+
+### Misc...
+Examplar model notebook link
+https://www.kaggle.com/prasanshasatpathy/clustering-unsupervised
+
+
+
+
+
+
+
+
+
+
+
+
 
